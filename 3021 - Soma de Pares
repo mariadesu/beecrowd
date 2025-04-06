@@ -1,0 +1,47 @@
+#include <iostream>
+
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    std::cin >> n;
+    
+    while (n>0) {
+        int i, alvo;
+        std::cin >> i >> alvo;
+
+        vector<int> numeros;
+        
+        for(i; i > 0; i--){
+            int num;
+            std::cin >> num;
+            numeros.push_back(num);
+        }
+        
+        int inicio = 0;
+        int fim = numeros.size() - 1;
+        int soma;
+        int pares = 0;
+        
+        while(inicio != fim){
+            soma = numeros.at(inicio) + numeros.at(fim);
+            
+            if (soma > alvo){
+                fim--;
+            }
+            else if (soma < alvo){
+                inicio++;
+            }
+            else if (soma == alvo){
+                pares++;
+                inicio++;
+            }
+        }
+        
+        n--;
+        cout << pares << endl;
+    }
+    
+    return 0;
+}
