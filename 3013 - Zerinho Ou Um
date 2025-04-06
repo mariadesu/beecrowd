@@ -1,0 +1,27 @@
+#include <iostream>
+
+int main() {
+
+    int n, p1, p2, p3;
+    std::cin >> n;
+    
+    while (n>0) {
+        std::cin >> p1 >> p2 >> p3;
+        
+        if (p1 == p2 && p1 == p3){
+            std::cout << 0 << std::endl;
+        }
+        else if (p2 == p3){
+            std::cout << 1 << std::endl;
+        }
+        else if (p1 == p3){
+            std::cout << 2 << std::endl;
+        }
+        else if (p1 == p2){
+            std::cout << 3 << std::endl;
+        }
+        n--;
+    }
+
+    return 0;
+}
