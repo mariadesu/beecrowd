@@ -1,0 +1,36 @@
+#include <iostream>
+#include <algorithm>
+
+int main() {
+
+    int n, a, b;
+    std::cin >> n;
+    
+    while (n>0) {
+        std::cin >> a >> b;
+        
+        int area_max = a*b;
+        
+        int maior_quadrado1 = std::min(a, b);
+        int maior_quadrado2 = std::min(a, b);
+        
+        while(maior_quadrado1*maior_quadrado1*4 > area_max){
+            maior_quadrado1--;
+            maior_quadrado2--;
+        }
+        
+        while(maior_quadrado1*4 >  std::max(a, b)){
+            maior_quadrado1--;
+        }
+
+        while(maior_quadrado2*2 > std::max(a, b) || maior_quadrado2*2 > std::min(a, b)){
+            maior_quadrado2--;
+        }
+        
+        std::cout << std::max(maior_quadrado1, maior_quadrado2) << std::endl;
+        
+        n--;
+    }
+
+    return 0;
+}
