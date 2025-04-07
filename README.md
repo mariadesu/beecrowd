@@ -10,4 +10,5 @@ This repository has the beecrowd exercises I'm solving for my Algorithm Implemen
 [3022 - Origami](https://github.com/mariadesu/beecrowd/blob/main/3022%20-%20Origami)
 
 ## week 2
-[3805 - Vizinho Mais Próximo (I)](https://github.com/mariadesu/beecrowd/blob/main/3805%20-%20Vizinho%20Mais%20Pr%C3%B3ximo%20(I))
+[3805 - Vizinho Mais Próximo (I)](https://github.com/mariadesu/beecrowd/blob/main/3805%20-%20Vizinho%20Mais%20Pr%C3%B3ximo%20(I))\
+[5239 - Segundo Turno](https://github.com/mariadesu/beecrowd/blob/main/5239%20-%20Segundo%20Turno)
