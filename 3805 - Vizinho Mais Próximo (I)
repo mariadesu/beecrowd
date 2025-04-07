@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    vector<int> entrada;
+    int t, n;
+    
+    cin >> t;
+    
+    while (t>0){
+        cin >> n;
+        
+        if (n == 1){
+            cout << -1 << endl;
+            cin >> n; //descarte
+        }
+        
+        else {
+            for (int i = 0; i<n; i++){
+                int e;
+                cin >> e;
+                entrada.push_back(e);
+            }
+            
+            for (int i = 0; i<(n-1); i++){
+                bool achou = false;
+                for (int j = i+1; j<n; j++){
+                    if (entrada.at(i) <= entrada.at(j)){
+                        cout << entrada.at(j) << ' ';
+                        achou = true;
+                        break;
+                    }
+                }
+                if (achou == false){
+                    cout << -1 << ' ';
+                }
+            }
+            cout << -1 << endl;
+            
+        }
+        
+        
+        entrada.clear();
+        t--;
+    }
+    
+    
+    return 0;
+}
