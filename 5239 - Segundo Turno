@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t, n;
+    
+    cin >> t;
+    
+    while (t>0){
+        cin >> n;
+        
+        unordered_map<int, int> eleicao; //candidato, voto
+        double maior_voto = (double)n/2;
+        bool achou = false;
+        
+        for (int i = 0; i<n; i++){
+            double voto;
+            cin >> voto;
+            eleicao[voto] += 1;
+            if (eleicao[voto] > maior_voto){
+                achou = true;
+            }
+        }
+        
+        if (achou){
+            cout << "N" << endl;
+        }
+        else {
+            cout << "S" << endl;
+        }
+
+        eleicao.clear();
+        t--;
+    }
+    
+    
+    return 0;
+}
