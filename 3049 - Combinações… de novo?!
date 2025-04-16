@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long combinacao(long long  n, long long p) {
+    if (p == 0 || p == n) {
+        return 1;
+    }
+
+    return combinacao(n-1, p-1)*n/p;
+}
+
+int main() {
+    int t;
+    cin >> t;
+    
+    while (t>0){
+        long long n, p;
+        cin >> n >> p;
+    
+        long long resultado = combinacao(n, p);
+        cout << resultado << endl;
+        
+        t--;
+    }
+
+    return 0;
+}
