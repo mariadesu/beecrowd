@@ -12,3 +12,6 @@ This repository has the beecrowd exercises I'm solving for my Algorithm Implemen
 ## week 2
 [3805 - Vizinho Mais Próximo (I)](https://github.com/mariadesu/beecrowd/blob/main/3805%20-%20Vizinho%20Mais%20Pr%C3%B3ximo%20(I))\
 [5239 - Segundo Turno](https://github.com/mariadesu/beecrowd/blob/main/5239%20-%20Segundo%20Turno)
+
+## week 3
+[3024 - Contando Retângulos](https://github.com/mariadesu/beecrowd/blob/main/3024%20-%20Contando%20Ret%C3%A2ngulos)
