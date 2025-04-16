@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void contando_retangulos(int n, int m){
+    long long retangulos, n1, m1;
+    
+    if (n==m){
+        n1 = (n + 1) * n / 2;
+        retangulos = n1*n1;
+    }
+    else{
+        n1 = (n + 1) * n / 2;
+        m1 = (m + 1) * m / 2;
+        retangulos = n1*m1;
+    }
+    
+    cout << retangulos << endl;
+}
+
+int main()
+{
+    int t;
+    cin >> t;
+    
+    while (t>0){
+        int n, m;
+        cin >> n >> m;
+        contando_retangulos(n, m);
+        t--;
+    }
+
+    return 0;
+}
