@@ -16,3 +16,6 @@ This repository has the beecrowd exercises I'm solving for my Algorithm Implemen
 ## week 3
 [3024 - Contando Retângulos](https://github.com/mariadesu/beecrowd/blob/main/3024%20-%20Contando%20Ret%C3%A2ngulos)\
 [3049 - Combinações… de novo?!](https://github.com/mariadesu/beecrowd/blob/main/3049%20-%20Combina%C3%A7%C3%B5es%E2%80%A6%20de%20novo%3F!)
+
+## week 4 - Combinatatória
+[3105 - Ranking](https://github.com/mariadesu/beecrowd/blob/main/3105%20-%20Ranking)
