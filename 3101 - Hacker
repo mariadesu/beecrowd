@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MOD = 1e9 + 7;
+
+long long hacker(long long k, long long n){
+    
+    if (k == 1){
+        return k;
+    }
+    else if (n == 1){
+        return k;
+    }
+    else {
+        long long resultado = 1;
+        k %= MOD;
+    
+        while (n > 0) {
+            if (n % 2 == 1) {
+                resultado = (resultado * k) % MOD;
+            }
+            k = (k * k) % MOD;
+            n /= 2;
+        }
+    
+        return resultado;
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    
+    while (t>0){
+        long long k, n;
+        cin >> k >> n;
+    
+        long long resultado = hacker(k, n);
+        cout << resultado << endl;
+        
+        t--;
+    }
+
+    return 0;
+}
