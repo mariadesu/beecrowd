@@ -19,4 +19,4 @@ This repository has the beecrowd exercises I'm solving for my Algorithm Implemen
 
 ## week 4 - Combinatatória I
 [3105 - Ranking](https://github.com/mariadesu/beecrowd/blob/main/3105%20-%20Ranking)\
-[3101 - Hacker](https://github.com/mariadesu/beecrowd/blob/main/3101%20-%20Hacker)\
+[3101 - Hacker](https://github.com/mariadesu/beecrowd/blob/main/3101%20-%20Hacker)
