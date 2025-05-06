@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+ll lcm(ll a, ll b) {
+    //__gcd calcular o mdc
+    return (a / __gcd(a, b)) * b;
+}
+
+ll lcm(ll a, ll b, ll c) {
+    return lcm(lcm(a, b), c);
+}
+
+int main() {
+    int t;
+    cin >> t;
+    
+    while (t>0){
+        ll n, a, b, c;
+        cin >> n >> a >> b >> c;
+
+        // quantidade de multiplos de a, b, c
+        ll countA = n / a;
+        ll countB = n / b;
+        ll countC = n / c;
+
+        // quantidade de multiplos do mmc de 2
+        ll countAB = n / lcm(a, b);
+        ll countAC = n / lcm(a, c);
+        ll countBC = n / lcm(b, c);
+
+        // quantidade de multiplos do mmc de 3
+        ll countABC = n / lcm(a, b, c);
+        
+        // principio da inclusao-exclusao
+        ll resultado = countA + countB + countC - countAB - countAC - countBC + countABC;
+
+        cout << resultado << endl;
+        
+        t--;
+    }
+
+    return 0;
+}
