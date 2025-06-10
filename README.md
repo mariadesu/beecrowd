@@ -20,4 +20,7 @@ This repository has the beecrowd exercises I'm solving for my Algorithm Implemen
 ## week 4 - Combinatatória I
 [3105 - Ranking](https://github.com/mariadesu/beecrowd/blob/main/3105%20-%20Ranking)\
 [3101 - Hacker](https://github.com/mariadesu/beecrowd/blob/main/3101%20-%20Hacker)\
-[3100 - Premiados](https://github.com/mariadesu/beecrowd/blob/main/3100%20-%20Premiados)
+[3100 - Premiados](https://github.com/mariadesu/beecrowd/blob/main/3100%20-%20Premiados)\
+
+## week 5 - Teoria dos Numeros
+[3298 - Mesmos Fatores](https://github.com/mariadesu/beecrowd/blob/main/3298%20-%20Mesmos%20Fatores)
