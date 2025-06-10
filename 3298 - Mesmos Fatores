@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> vcrivo(10000001, 1);
+
+void crivo(){
+    for (int i = 2; i <= vcrivo.size(); i++) {
+        if(i%2==0){
+            vcrivo[i] = 2;
+        } else{
+            vcrivo[i] = i;
+        }
+    }
+    
+    for(int i = 3; i<sqrt(vcrivo.size()); i++){
+        if(vcrivo[i]==i){
+            for(int j = i*i; j<vcrivo.size(); j += i){
+                if(vcrivo[j] == j){
+                    vcrivo[j] = i;
+                }
+            }
+        }
+    }
+}
+
+
+long long mesmos_fatores(){
+    long long num, minimo, aux;
+    cin >> num;
+    minimo = 10000000;
+    aux = num;
+    
+    if(num==1){
+        return 1;
+    } else{
+        while(num!= 1){
+            minimo = min((long long)vcrivo[num], minimo);
+            num = num/(long long)vcrivo[num];
+        }
+        return aux * minimo;
+    }
+}
+
+int main() {
+	int t;
+	cin >> t;
+	
+	crivo();
+	
+	while (t--) {
+		cout << mesmos_fatores() << endl;
+	}
+
+	return 0;
+}
