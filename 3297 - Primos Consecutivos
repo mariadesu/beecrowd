@@ -1,0 +1,73 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> vcrivo(100001, 1);
+vector<int> primos;
+
+void crivo(){
+    for (int i = 2; i <= vcrivo.size(); i++) {
+        if(i%2==0){
+            vcrivo[i] = 2;
+        } else{
+            vcrivo[i] = i;
+        }
+    }
+    
+    for(int i = 3; i<sqrt(vcrivo.size()); i++){
+        if(vcrivo[i]==i){
+            for(int j = i*i; j<vcrivo.size(); j += i){
+                if(vcrivo[j] == j){
+                    vcrivo[j] = i;
+                }
+            }
+        }
+    }
+    
+    //captura primos
+    for (int i = 2; i < vcrivo.size(); i++) {
+        if (vcrivo[i] == i) {
+            primos.push_back(i);
+        }
+    }
+
+}
+
+
+void primos_consecutivos(){
+    int num;
+    cin >> num;
+    
+    int vencedor = 0;
+    
+    for(int i = 0; primos[i]<=num && i<primos.size(); i++){
+        int soma = 0;
+        for(int j = i; primos[j]<=num && j<primos.size(); j++){
+            soma+=primos[j];
+            if(soma==num){
+                vencedor++;
+                break;
+            }
+            else if(soma>num){
+                break;
+            }
+        }
+    }
+    
+    if(vencedor%2 !=0){
+        cout << "Joana" << endl;
+    } else{
+        cout << "Bruno" << endl;
+    }
+}
+
+int main() {
+	int t;
+	cin >> t;
+	
+	crivo();
+	
+	while (t--) {
+		primos_consecutivos();
+	}
+
+	return 0;
+}
