@@ -23,4 +23,5 @@ This repository has the beecrowd exercises I'm solving for my Algorithm Implemen
 [3100 - Premiados](https://github.com/mariadesu/beecrowd/blob/main/3100%20-%20Premiados)\
 
 ## week 5 - Teoria dos Numeros
-[3298 - Mesmos Fatores](https://github.com/mariadesu/beecrowd/blob/main/3298%20-%20Mesmos%20Fatores)
+[3298 - Mesmos Fatores](https://github.com/mariadesu/beecrowd/blob/main/3298%20-%20Mesmos%20Fatores)\
+[3297 - Primos Consecutivos](https://github.com/mariadesu/beecrowd/blob/main/3297%20-%20Primos%20Consecutivos)
