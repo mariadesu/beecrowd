@@ -27,7 +27,7 @@ This repository has the beecrowd exercises I'm solving for my Algorithm Implemen
 [3297 - Primos Consecutivos](https://github.com/mariadesu/beecrowd/blob/main/3297%20-%20Primos%20Consecutivos)
 
 ## week 6 - Teoria dos Numeros II
-[3325 - Múltiplos Pseudo0binários I]()
+[3325 - Múltiplos Pseudo0binários I](https://github.com/mariadesu/beecrowd/blob/main/3325%20-%20M%C3%BAltiplos%20Pseudo0bin%C3%A1rios%20I)
 
 ## week 7 - Teoria dos Numeros III
-[3363 - Lendo o diário de Julieta]()
+[3363 - Lendo o diário de Julieta](https://github.com/mariadesu/beecrowd/blob/main/3363%20-%20Lendo%20o%20di%C3%A1rio%20de%20Julieta)
