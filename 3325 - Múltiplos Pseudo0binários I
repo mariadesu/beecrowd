@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int modulo(const string &s, int n) {
+    int r = 0;
+    for (char c : s) {
+        r = (r * 10 + (c - '0')) % n;
+    }
+    return r;
+}
+
+void pseudobinarios(){
+    int n;
+    cin>> n;
+    
+    string binario = "1";
+    vector<int> restos(n, -1);
+    
+    for(int i = 0; i<n; i++){
+        int resto = modulo(binario, n);
+        if(resto==0){
+            cout<< binario << endl;
+            break;
+        }
+        else if(restos[resto]!=-1){
+            string pb = string(binario.size()-(restos[resto]+1), '1') + string(restos[resto]+1, '0');
+            cout << pb << endl;
+            break;
+        }
+        else{
+            restos[resto] = i;
+            binario += "1";
+        }
+    }
+}
+
+int main() {
+	int t;
+	cin >> t;
+	
+	while (t--) {
+		pseudobinarios();
+	}
+
+	return 0;
+}
