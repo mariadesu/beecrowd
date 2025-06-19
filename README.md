@@ -22,6 +22,12 @@ This repository has the beecrowd exercises I'm solving for my Algorithm Implemen
 [3101 - Hacker](https://github.com/mariadesu/beecrowd/blob/main/3101%20-%20Hacker)\
 [3100 - Premiados](https://github.com/mariadesu/beecrowd/blob/main/3100%20-%20Premiados)
 
-## week 5 - Teoria dos Numeros
+## week 5 - Teoria dos Numeros I
 [3298 - Mesmos Fatores](https://github.com/mariadesu/beecrowd/blob/main/3298%20-%20Mesmos%20Fatores)\
 [3297 - Primos Consecutivos](https://github.com/mariadesu/beecrowd/blob/main/3297%20-%20Primos%20Consecutivos)
+
+## week 6 - Teoria dos Numeros II
+[3325 - Múltiplos Pseudo0binários I]()
+
+## week 7 - Teoria dos Numeros III
+[3363 - Lendo o diário de Julieta]()
