@@ -30,4 +30,5 @@ This repository has the beecrowd exercises I'm solving for my Algorithm Implemen
 [3325 - Múltiplos Pseudo0binários I](https://github.com/mariadesu/beecrowd/blob/main/3325%20-%20M%C3%BAltiplos%20Pseudo0bin%C3%A1rios%20I)
 
 ## week 7 - Teoria dos Numeros III
-[3363 - Lendo o diário de Julieta](https://github.com/mariadesu/beecrowd/blob/main/3363%20-%20Lendo%20o%20di%C3%A1rio%20de%20Julieta)
+[3363 - Lendo o diário de Julieta](https://github.com/mariadesu/beecrowd/blob/main/3363%20-%20Lendo%20o%20di%C3%A1rio%20de%20Julieta)\
+[3364 - Primo de Consideração](https://github.com/mariadesu/beecrowd/blob/main/3364%20-%20Primo%20de%20Considera%C3%A7%C3%A3o)
