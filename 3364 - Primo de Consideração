@@ -1,0 +1,51 @@
+import math
+vcrivo = [1] * 200001
+carmichael = [0] * 200001
+
+def crivo():
+    for i in range(2, len(vcrivo)):
+        if i % 2 == 0:
+            vcrivo[i] = 2
+        else:
+            vcrivo[i] = i
+
+    for i in range(3, int(math.sqrt(len(vcrivo))) + 1):
+        if vcrivo[i] == i:
+            for j in range(i * i, len(vcrivo), i):
+                if vcrivo[j] == j:
+                    vcrivo[j] = i
+
+def fermat():
+    for i in range(4, len(carmichael)):
+        #verifica se eh primo
+        if vcrivo[i] != i :
+            carm = True
+            #pequeno teorema de fermat
+            for j in range(2, i):
+                if math.gcd(j, i) == 1:
+                    if(pow(j, i-1, i) != 1):
+                        carm = False
+                        break;
+            
+            if carm:
+                carmichael[i] = carmichael[i-1] + 1
+            else:
+                carmichael[i] = carmichael[i-1]
+        else:
+            carmichael[i] = carmichael[i-1]
+    
+    
+if __name__ == "__main__":
+    crivo()
+    fermat()
+    
+    t = int(input())
+    
+    while t!=0:
+        teste = input()
+        p, q = teste.split()
+        p = int(p)
+        q = int(q)
+        
+        print(carmichael[q]-carmichael[p])
+        t -= 1
