@@ -33,4 +33,5 @@ This repository has the beecrowd exercises I'm solving for my Algorithm Implemen
 [3363 - Lendo o diário de Julieta](https://github.com/mariadesu/beecrowd/blob/main/3363%20-%20Lendo%20o%20di%C3%A1rio%20de%20Julieta)\
 [3364 - Primo de Consideração](https://github.com/mariadesu/beecrowd/blob/main/3364%20-%20Primo%20de%20Considera%C3%A7%C3%A3o)\
 [3367 - Criptografando com o RSA](https://github.com/mariadesu/beecrowd/blob/main/3367%20-%20Criptografando%20com%20o%20RSA)\
-[3366 - Quebrando o RSA I](https://github.com/mariadesu/beecrowd/blob/main/3366%20-%20Quebrando%20o%20RSA%20I)
+[3366 - Quebrando o RSA I](https://github.com/mariadesu/beecrowd/blob/main/3366%20-%20Quebrando%20o%20RSA%20I)\
+[3368 - Potenciação](https://github.com/mariadesu/beecrowd/blob/main/3368%20-%20Potencia%C3%A7%C3%A3o)
