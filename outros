@@ -1,0 +1,445 @@
+-------------------------------- 3099
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    vector<unsigned long long> catalan(36, 0);
+    catalan[0] = 1;
+    for (int n = 1; n <= 35; n++) {
+        for (int i = 0; i < n; i++) {
+            catalan[n] += catalan[i] * catalan[n - 1 - i];
+        }
+    }
+
+    while (t--) {
+        int n;
+        cin >> n;
+        cout << catalan[n] << endl;
+    }
+
+    return 0;
+}
+
+-------------------------------- 3115
+
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MOD = 1000000007;
+
+long long modPow(long long base, long long expoente) {
+    long long resultado = 1;
+    while (expoente > 0) {
+        if (expoente % 2)
+            resultado = resultado * base % MOD;
+        base = base * base % MOD;
+        expoente /= 2;
+    }
+    return resultado;
+}
+
+long long fatorial(long long n) {
+    long long resultado = 1;
+    for (int i = 2; i <= n; i++) {
+        resultado = resultado * i % MOD;
+    }
+    return resultado;
+}
+
+long long inverso(long long a) {
+    return modPow(a, MOD - 2);
+}
+
+int main() {
+    int t;
+    cin >> t;
+    
+    while (t>0) {
+        int k;
+        cin >> k;
+        vector<int> q(k);
+        
+        int soma = 0;
+        for (int i = 0; i < k; i++) {
+            cin >> q[i];
+            soma += q[i];
+        }
+
+        long long numerador = fatorial(soma);
+        long long denominador = 1;
+
+        for (int i = 0; i < k; i++) {
+            denominador = denominador * fatorial(q[i]) % MOD;
+        }
+
+        long long resultado = numerador * inverso(denominador) % MOD;
+        cout << resultado << endl;
+        
+        t--;
+    }
+
+    return 0;
+}
+
+-------------------------------- 3147
+
+#include <bits/stdc++.h>
+using namespace std;
+
+long long stirling(int n, int p) {
+    vector<vector<long long>> dp(n + 1, vector<long long>(p + 1, 0));
+    
+    dp[0][0] = 1;
+    
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= p; ++j) {
+            if (i == j) {
+                dp[i][j] = 1;
+            } else {
+                dp[i][j] = j * dp[i - 1][j] + dp[i - 1][j - 1];
+            }
+        }
+    }
+
+    return dp[n][p];
+}
+
+int main() {
+    int t;
+    cin >> t;
+    
+    while (t--) {
+        int n, p;
+        cin >> n >> p;
+        
+        cout << stirling(n, p) << endl;
+    }
+
+    return 0;
+}
+
+-------------------------------- 3148
+#include <bits/stdc++.h>
+using namespace std;
+
+bool divisivelPorK(const string& n_str, int k) {
+    long long resto = 0;
+    for (char digito : n_str) {
+        resto = (resto * 10 + (digito - '0')) % k;
+    }
+    return resto == 0;
+}
+
+int main() {
+    int t;
+    cin >> t;
+    
+    while (t--) {
+        string n;
+        int k;
+        cin >> n >> k;
+        
+        if (divisivelPorK(n, k)) {
+            cout << "S" << endl;
+        } else {
+            cout << "N" << endl;
+        }
+    }
+
+    return 0;
+}
+-------------------------------- 3149
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MOD = 1000000007;
+
+typedef vector<vector<long long>> Matrix;
+
+Matrix multiply(Matrix &A, Matrix &B) {
+    Matrix result(3, vector<long long>(3, 0));
+    for (int i = 0; i < 3; ++i)
+        for (int j = 0; j < 3; ++j)
+            for (int k = 0; k < 3; ++k)
+                result[i][j] = (result[i][j] + A[i][k] * B[k][j]) % MOD;
+    return result;
+}
+
+Matrix power(Matrix A, int exp) {
+    Matrix result = {
+        {1, 0, 0},
+        {0, 1, 0},
+        {0, 0, 1}
+    };
+    while (exp > 0) {
+        if (exp % 2 == 1)
+            result = multiply(result, A);
+        A = multiply(A, A);
+        exp /= 2;
+    }
+    return result;
+}
+
+long long solve(int n, long long a, long long b, long long c, long long t0, long long t1, long long t2) {
+    if (n == 0) return t0 % MOD;
+    if (n == 1) return t1 % MOD;
+    if (n == 2) return t2 % MOD;
+
+    Matrix T = {
+        {a, b, c},
+        {1, 0, 0},
+        {0, 1, 0}
+    };
+
+    Matrix Tn = power(T, n - 2);
+
+    long long fn = (
+        Tn[0][0] * t2 % MOD +
+        Tn[0][1] * t1 % MOD +
+        Tn[0][2] * t0 % MOD
+    ) % MOD;
+
+    return fn;
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        long long a, b, c;
+        long long t0, t1, t2;
+
+        cin >> n;
+        cin >> a >> b >> c;
+        cin >> t0 >> t1 >> t2;
+
+        cout << solve(n, a, b, c, t0, t1, t2) << endl;
+    }
+
+    return 0;
+}
+-------------------------------- 3150
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MOD = 1000000007;
+typedef vector<vector<long long>> Matrix;
+
+Matrix multiply(const Matrix &A, const Matrix &B, int k) {
+    Matrix result(k, vector<long long>(k, 0));
+    for (int i = 0; i < k; ++i)
+        for (int j = 0; j < k; ++j)
+            for (int l = 0; l < k; ++l)
+                result[i][j] = (result[i][j] + A[i][l] * B[l][j]) % MOD;
+    return result;
+}
+
+Matrix power(Matrix M, long long p, int k) {
+    Matrix result(k, vector<long long>(k, 0));
+    for (int i = 0; i < k; ++i) result[i][i] = 1;
+
+    while (p > 0) {
+        if (p % 2 == 1) result = multiply(result, M, k);
+        M = multiply(M, M, k);
+        p /= 2;
+    }
+    return result;
+}
+
+long long solve(int n, int k, const vector<long long> &a, const vector<long long> &t) {
+    if (n < k) return t[n] % MOD;
+
+    Matrix T(k, vector<long long>(k, 0));
+    for (int i = 0; i < k; ++i)
+        T[0][i] = a[i] % MOD;
+
+    for (int i = 1; i < k; ++i)
+        T[i][i - 1] = 1;
+
+    Matrix Tn = power(T, n - k + 1, k);
+
+    long long fn = 0;
+    for (int i = 0; i < k; ++i)
+        fn = (fn + Tn[0][i] * t[k - 1 - i]) % MOD;
+
+    return fn;
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n, k;
+        cin >> n >> k;
+
+        vector<long long> a(k), initial(k);
+        for (int i = 0; i < k; ++i) cin >> a[i];
+        for (int i = 0; i < k; ++i) cin >> initial[i];
+
+        cout << solve(n, k, a, initial) << endl;
+    }
+
+    return 0;
+}
+-------------------------------- 3151
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        long long a, b, c;
+        cin >> a >> b >> c;
+
+        double x = a / 2.0;
+        double y = a / 2.0 + b;
+        double z = c;
+
+        cout << x << " " << y << " " << z << "\n";
+    }
+
+    return 0;
+}
+-------------------------------- 3217
+#include <bits/stdc++.h>
+using namespace std;
+
+int travessia(int n, int k) {
+    vector<int> tempos(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> tempos[i];
+        }
+    vector<int> dp(n + 1, INT_MAX);
+    dp[0] = 0;
+
+    for (int i = 1; i <= n; ++i) {
+        int max_tempo = 0;
+        for (int j = 1; j <= k && j <= i; ++j) {
+            max_tempo = max(max_tempo, tempos[i - j]);
+            dp[i] = min(dp[i], dp[i - j] + max_tempo);
+        }
+    }
+
+    return dp[n];
+}
+
+int main() {
+    int testes;
+    cin >> testes;
+
+    while (testes--) {
+        int carros, simultaneo;
+        cin >> carros >> simultaneo;
+        cout << travessia(carros, simultaneo) << endl;
+    }
+
+    return 0;
+}
+-------------------------------- 3220
+#include <bits/stdc++.h>
+using namespace std;
+const int MOD = 1e9 + 7;
+
+long long bicicleta_ergonometrica() {
+	long long programa, min, max;
+	cin >> programa >> min >> max;
+
+	vector<vector<long long>> dp(programa + 1, vector<long long>(max + 1, 0));
+	long long total = 0;
+    
+    if (max-min == 0){
+        total = 1;
+    }
+    else{
+    	for (int i = 1; i <= programa; ++i) {
+    		for (int j = min; j <= max; ++j) {
+    			if(i==1) {
+    				dp[i][j] = 1;
+    				if(i==programa){
+    				    total = (max - min + 1)% MOD;
+    				}
+    			}
+    			else if(i == programa) {
+    				if(j==min) {
+    					total = (total + dp[i-1][j+1])% MOD;
+    				}
+    				else if (j==max) {
+    					total = (total + dp[i-1][j-1])% MOD;
+    				}
+    				else {
+    					total = (total + dp[i-1][j-1] + dp[i-1][j+1])% MOD;
+    				}
+    			}
+    			else {
+    			    if(j==min) {
+    					dp[i][j] = (dp[i][j] + dp[i-1][j+1])% MOD;
+    				}
+    				else if (j==max) {
+    					dp[i][j] = (dp[i][j] + dp[i-1][j-1])% MOD;
+    				}
+    				else {
+    					dp[i][j] = (dp[i][j] + dp[i-1][j-1] + dp[i-1][j+1])% MOD;
+    				}
+    			}
+    		}
+    	}
+    }
+
+	return total;
+}
+
+int main() {
+	int t;
+	cin >> t;
+
+	while (t--) {
+		cout << bicicleta_ergonometrica() << endl;
+	}
+
+	return 0;
+}
+-------------------------------- 3267
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> quadrados(10001, 5);
+
+void preprocessamento(){
+    quadrados[0]=0;
+    for (int i = 1; i < 10001; ++i) {
+        float n = sqrt(i+0.25);
+    
+        for (int j = 1; j < n; ++j) {
+            quadrados[i] = min(quadrados[i], quadrados[i - j*j] + 1);
+        }
+    }
+}
+
+
+int soma_quadrados() {
+	int num;
+	cin >> num;
+
+	return quadrados[num];
+}
+
+int main() {
+	int t;
+	cin >> t;
+    
+    preprocessamento();
+    
+	while (t--) {
+		cout << soma_quadrados() << endl;
+	}
+
+	return 0;
+}
